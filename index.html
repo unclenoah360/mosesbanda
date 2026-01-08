@@ -2,11 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CRITICAL FIX: Enhanced viewport for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <title>Moses Banda - Aspiring Matero Member of Parliament</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
+        /* ==================== MOBILE-FIRST FIXES ==================== */
+        
+        /* Prevent horizontal scrolling on ALL devices */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+        
+        /* Force all containers to stay within bounds */
+        .container {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* ==================== MAIN STYLES ==================== */
         :root {
             --primary-blue: #1a5f9e;
             --secondary-blue: #2c80d0;
@@ -767,7 +794,38 @@
             }
         }
         
-        /* Mobile Responsive */
+        /* ==================== MOBILE RESPONSIVE FIXES ==================== */
+        
+        /* Fix for landscape mode on mobile */
+        @media screen and (max-width: 768px) and (orientation: landscape) {
+            .hero {
+                padding: 120px 0 80px !important;
+                min-height: 100vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem !important;
+            }
+            
+            .hero-tagline {
+                font-size: 1.1rem !important;
+            }
+            
+            .hero-stats {
+                gap: 20px;
+            }
+            
+            .stat-item {
+                flex: 0 0 calc(33.333% - 20px);
+            }
+            
+            .hero-quote {
+                font-size: 1rem;
+                padding: 15px;
+            }
+        }
+        
+        /* Tablet and smaller */
         @media (max-width: 1200px) {
             .hero h1 {
                 font-size: 3rem;
@@ -788,6 +846,7 @@
             }
         }
         
+        /* Mobile devices */
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -813,6 +872,7 @@
             nav ul li {
                 margin: 0;
                 text-align: center;
+                width: 100%;
             }
             
             nav ul li a {
@@ -837,19 +897,44 @@
             .stat-number {
                 font-size: 2rem;
             }
+            
+            /* Fix image display on mobile */
+            .profile-img {
+                min-width: 100% !important;
+                transform: none !important;
+            }
+            
+            .vision-card, .mission-card, .lesson-card, .initiative-card {
+                min-width: 100% !important;
+                margin-bottom: 20px;
+            }
+            
+            .initiatives-grid, .lessons-content, .gallery-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .about-content, .vision-content {
+                flex-direction: column;
+            }
         }
         
+        /* Small mobile devices */
         @media (max-width: 576px) {
             .hero {
                 padding: 130px 0 80px;
             }
             
             section {
-                padding: 70px 0;
+                padding: 70px 0 !important;
             }
             
             .section-title h2 {
                 font-size: 1.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+                margin: 0 auto 30px;
             }
             
             .vision-card, .mission-card, .lesson-card {
@@ -858,6 +943,56 @@
             
             .support-btn {
                 padding: 15px 35px;
+                font-size: 1rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .stat-item {
+                width: 100%;
+            }
+            
+            .contact-item {
+                min-width: 100%;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1rem;
+            }
+            
+            .hero-quote {
+                font-size: 0.95rem;
+                padding: 15px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+        }
+        
+        /* Fix for iOS Safari */
+        @supports (-webkit-touch-callout: none) {
+            .hero {
+                background-attachment: scroll;
             }
         }
     </style>
@@ -929,7 +1064,7 @@
             
             <div class="about-content">
                 <div class="profile-img">
-                    <img src="images/586586158_844127458343017_7181661058691949069_n.jpg" alt="Moses Banda">
+                    <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Moses Banda">
                 </div>
                 
                 <div class="profile-info">
@@ -1081,7 +1216,7 @@
             <div class="initiatives-grid">
                 <div class="initiative-card">
                     <div class="initiative-img">
-                        <img src="images/608547127_873016792120750_3048896315285571804_n.jpg" alt="Football Tournament">
+                        <img src="https://images.unsplash.com/photo-1577223625818-75bc1f2ac0e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Football Tournament">
                     </div>
                     <div class="initiative-content">
                         <h4>New Year Football Tournament</h4>
@@ -1092,7 +1227,7 @@
                 
                 <div class="initiative-card">
                     <div class="initiative-img">
-                        <img src="images/556116404_795849816504115_7519370172316078783_n.jpg" alt="Business Consulting">
+                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Consulting">
                     </div>
                     <div class="initiative-content">
                         <h4>M.C. Business Consultants</h4>
@@ -1103,7 +1238,7 @@
                 
                 <div class="initiative-card">
                     <div class="initiative-img">
-                        <img src="images/608895898_873261042096325_1595222947300990215_n.jpg" alt="Development Forum">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Development Forum">
                     </div>
                     <div class="initiative-content">
                         <h4>Matero Constituency Development Forum</h4>
@@ -1183,28 +1318,28 @@
             
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="images/504383937_736156372473460_9038386333744225760_n.jpg" alt="Community Meeting">
+                    <img src="https://images.unsplash.com/photo-1513128034602-7814ccaddd4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Community Meeting">
                     <div class="gallery-overlay">
                         <p>Community Consultation Meeting</p>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="images/556116404_795849816504115_7519370172316078783_n.jpg" alt="Football Tournament">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Football Tournament">
                     <div class="gallery-overlay">
                         <p>New Year Football Tournament</p>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="images/607009724_873016448787451_320629585485540725_n.jpg" alt="Youth Engagement">
+                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab284?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Youth Engagement">
                     <div class="gallery-overlay">
                         <p>Youth Empowerment Session</p>
                     </div>
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="iahttps://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Workshop">
+                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Workshop">
                     <div class="gallery-overlay">
                         <p>Business Skills Workshop</p>
                     </div>
@@ -1414,26 +1549,9 @@
         
         // Initialize with header check
         window.dispatchEvent(new Event('scroll'));
+        
+        // Fix for iOS Safari touch events
+        document.addEventListener('touchstart', function() {}, {passive: true});
     </script>
-</body>
-</html>
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bandamo's Portfolio</title>
-  <style>
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; background:#f6f8fb; color:#0b1a2b; }
-    .card { background:white; padding:2rem; border-radius:12px; box-shadow:0 8px 30px rgba(10,20,40,0.06); max-width:720px; text-align:center; }
-    a { color:#0366d6; text-decoration:none; }
-  </style>
-</head>
-<body>
-  <main class="card">
-    <h1>Bandamo's Portfolio</h1>
-    <p>Welcome — this is a placeholder. Replace this file with your portfolio HTML, or push your build output from your framework.</p>
-    <p><a href="https://github.com/unclenoah360/bandamosesportifolio" target="_blank" rel="noopener">View repository</a></p>
-  </main>
 </body>
 </html>
