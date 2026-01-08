@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moses Banda - Aspiring Matero Member of Parliament</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-blue: #1a5f9e;
+            --secondary-blue: #2c80d0;
+            --light-blue: #e8f2fc;
+            --white: #ffffff;
+            --dark-gray: #333333;
+            --light-gray: #f5f5f5;
+            --accent-blue: #0a4a8a;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 5px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary-blue);
+            font-size: 28px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        
+        .logo-text span {
+            color: var(--secondary-blue);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        nav ul li a.active {
+            color: var(--primary-blue);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-blue);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-btn:hover {
+            transform: rotate(90deg);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 95, 158, 0.85) 0%, rgba(44, 128, 208, 0.85) 100%), url('https://images.unsplash.com/photo-1527295117447-44d4be6fd0ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 180px 0 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M1200 120L0 16.48 0 0 1200 0 1200 120z' fill='%23ffffff'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        .hero-tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .hero-quote {
+            font-style: italic;
+            font-size: 1.4rem;
+            margin-top: 40px;
+            padding: 25px;
+            border-left: 4px solid var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0 10px 10px 0;
+            animation: fadeIn 1s ease-out 0.9s both;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary-blue);
+            display: inline-block;
+            padding-bottom: 15px;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary-blue);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .profile-img {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: var(--transition);
+        }
+        
+        .profile-img:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .profile-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .profile-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .profile-info {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .profile-info h3 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+        }
+        
+        .timeline {
+            margin-top: 40px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-year {
+            min-width: 80px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+        }
+        
+        .timeline-content {
+            padding-left: 20px;
+            border-left: 2px solid var(--light-blue);
+            position: relative;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary-blue);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            background-color: var(--light-blue);
+            border-radius: 10px;
+            flex: 1;
+            min-width: 200px;
+            transition: var(--transition);
+            transform: translateY(0);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-item i {
+            color: var(--primary-blue);
+            font-size: 24px;
+        }
+        
+        /* Vision & Mission */
+        .vision-mission {
+            background-color: var(--light-gray);
+            position: relative;
+        }
+        
+        .vision-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+        
+        .vision-card, .mission-card {
+            flex: 1;
+            min-width: 300px;
+            padding: 50px;
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--primary-blue);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .vision-card.visible, .mission-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .vision-card:hover, .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .vision-card h3, .mission-card h3 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+        }
+        
+        /* DPP Info */
+        .dpp-info {
+            background-color: var(--light-blue);
+        }
+        
+        .dpp-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .dpp-logo {
+            font-size: 4rem;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .dpp-highlight {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--secondary-blue);
+            transition: var(--transition);
+        }
+        
+        .dpp-highlight:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* Community Initiatives */
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .initiative-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .initiative-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .initiative-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .initiative-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .initiative-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .initiative-card:hover .initiative-img img {
+            transform: scale(1.1);
+        }
+        
+        .initiative-content {
+            padding: 25px;
+        }
+        
+        .initiative-content h4 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        /* Lessons & Philosophy */
+        .lessons-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .lesson-card {
+            background-color: var(--white);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--secondary-blue);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .lesson-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .lesson-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .lesson-card h4 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .lesson-card h4 i {
+            color: var(--secondary-blue);
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            background-color: var(--light-gray);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(26, 95, 158, 0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay p {
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Support Section */
+        .support-section {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+        }
+        
+        .support-btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-blue);
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 30px;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .support-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-blue);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 20px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .vision-card, .mission-card {
+                padding: 35px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--white);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                padding: 20px 0;
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px 0;
+                border-bottom: 1px solid var(--light-gray);
+            }
+            
+            .hero {
+                padding: 150px 0 100px;
+                background-attachment: scroll;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-quote {
+                font-size: 1.2rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 130px 0 80px;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .vision-card, .mission-card, .lesson-card {
+                padding: 25px;
+            }
+            
+            .support-btn {
+                padding: 15px 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <div class="logo-text">Moses <span>Banda</span></div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#vision">Vision</a></li>
+                    <li><a href="#dpp">DPP</a></li>
+                    <li><a href="#initiatives">Initiatives</a></li>
+                    <li><a href="#philosophy">Philosophy</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Moses Banda</h1>
+            <div class="hero-tagline">Aspiring Member of Parliament for Matero Constituency</div>
+            <p>Business Consultant | Humanitarian | PIA Ambassador | Tax Ambassador</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="followersCount">0</span>
+                    <span class="stat-label">Followers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="initiativesCount">0</span>
+                    <span class="stat-label">Community Initiatives</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="yearsCount">0</span>
+                    <span class="stat-label">Years of Service</span>
+                </div>
+            </div>
+            
+            <div class="hero-quote">
+                "Real change doesn't come from waiting to be chosen, approved, or invited. It starts when you decide to act. When you take responsibility, step forward with courage, and use what you have where you are, momentum is created."
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Moses</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="profile-img">
+                    <img src="images/586586158_844127458343017_7181661058691949069_n.jpg" alt="Moses Banda">
+                </div>
+                
+                <div class="profile-info">
+                    <h3>Committed to Matero's Development</h3>
+                    <p>Moses Banda is a dedicated community leader, business consultant, and aspiring Member of Parliament for Matero Constituency. With a background in business and humanitarian work, he brings a practical, solution-oriented approach to politics.</p>
+                    
+                    <p>As a BeRelevant Afrika Alumni and ambassador for multiple organizations, Moses has consistently demonstrated his commitment to citizen empowerment and community development. His approach is rooted in the belief that real change comes from taking initiative and acting with purpose.</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2017</div>
+                            <div class="timeline-content">Began personal transformation journey focusing on respect as a core value and lifestyle.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2019</div>
+                            <div class="timeline-content">Started seeing results of consistent respectful conduct and community engagement.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2022</div>
+                            <div class="timeline-content">Established M.B. Progress Enterprise and became PIA & Tax Ambassador.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2025</div>
+                            <div class="timeline-content">Officially announced as Aspiring Matero Member of Parliament and launched community initiatives.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Location</strong>
+                                <p>Lusaka, Zambia</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Contact</strong>
+                                <p>0977257811</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-birthday-cake"></i>
+                            <div>
+                                <strong>Birthday</strong>
+                                <p>May 8</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission Section -->
+    <section class="vision-mission" id="vision">
+        <div class="container">
+            <div class="section-title">
+                <h2>Vision & Mission</h2>
+            </div>
+            
+            <div class="section-subtitle">
+                Building a future where every citizen in Matero Constituency has access to opportunities, empowerment, and sustainable development.
+            </div>
+            
+            <div class="vision-content">
+                <div class="vision-card">
+                    <h3><i class="fas fa-eye"></i> My Vision</h3>
+                    <p>To transform Matero Constituency into a model of sustainable development, citizen empowerment, and community-led progress where every resident has access to opportunities and a voice in decision-making.</p>
+                    
+                    <p>In Zambia, our development depends on citizens who rise with initiative, discipline, and purpose. Start now. Act boldly. Lead by example. That is how progress is born.</p>
+                    
+                    <p>Through the Matero Constituency Development Forum, we aim to create a platform for genuine dialogue, unity, and development that puts the people of Matero at the center of all initiatives.</p>
+                    
+                    <ul style="margin-top: 20px; padding-left: 20px;">
+                        <li>Economic empowerment for youth and women</li>
+                        <li>Quality education and skills development</li>
+                        <li>Improved healthcare access</li>
+                        <li>Sustainable infrastructure development</li>
+                    </ul>
+                </div>
+                
+                <div class="mission-card">
+                    <h3><i class="fas fa-bullseye"></i> My Mission</h3>
+                    <p>To serve as an accountable, transparent, and effective representative who bridges the gap between government and the people, ensuring that development reaches every corner of Matero Constituency.</p>
+                    
+                    <ul style="margin-top: 20px; padding-left: 20px;">
+                        <li>Empower citizens socially, economically, and intellectually</li>
+                        <li>Promote community-based development initiatives</li>
+                        <li>Advocate for youth engagement and sports development</li>
+                        <li>Foster business growth and entrepreneurship</li>
+                        <li>Ensure transparent and accountable leadership</li>
+                        <li>Bridge the gap between government services and citizens</li>
+                        <li>Promote environmental sustainability</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px; font-style: italic; border-left: 3px solid var(--secondary-blue); padding-left: 15px;">"Being in opposition does not mean opposing everything. Leaders are entrusted with power by the people, and when something is good, it should be acknowledged as good."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DPP Section -->
+    <section class="dpp-info" id="dpp">
+        <div class="container">
+            <div class="section-title">
+                <h2>Development People's Party</h2>
+            </div>
+            
+            <div class="section-subtitle">
+                Moses Banda is proudly affiliated with the Development People's Party (DPP), a fully registered political party committed to Zambia's transformation.
+            </div>
+            
+            <div class="dpp-content">
+                <div class="dpp-logo">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                
+                <h3>Official Party of Moses Banda</h3>
+                <p>The Development People's Party (DPP) has achieved full registration status and is now fully empowered to undertake its mission to fundamentally reshape the political and economic destiny of Zambia.</p>
+                
+                <div class="dpp-highlight">
+                    <h4>DPP Ideology: Developmental Centrism</h4>
+                    <p>A balance of market-driven growth and state-led social investment.</p>
+                    <p><strong>Slogan:</strong> "Growth with a Heart: Development for All, Accountable to All."</p>
+                    <p><strong>Vision:</strong> The Zambian Century of Development</p>
+                </div>
+                
+                <p>The DPP commits to building a Zambia where every citizen benefits from a diversified, strong, and morally governed economy. We reject the extremes of unsustainable spending and exclusionary market policies, choosing a path of Developmental Centrism where fiscal discipline funds infrastructure and human capital investment.</p>
+                
+                <p style="margin-top: 20px; font-weight: bold; font-size: 1.1rem;">"The time for waiting is over; the time for work is now. We must immediately begin the concerted effort required to bring about the transformative change our nation has long awaited and truly deserves."</p>
+                <p style="text-align: right; margin-top: 10px; color: var(--primary-blue);">- Dr. Kafula Mubanga, DPP President</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Initiatives -->
+    <section id="initiatives">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community Initiatives</h2>
+            </div>
+            
+            <div class="section-subtitle">
+                Active programs and projects currently benefiting the Matero Constituency community.
+            </div>
+            
+            <div class="initiatives-grid">
+                <div class="initiative-card">
+                    <div class="initiative-img">
+                        <img src="images/608547127_873016792120750_3048896315285571804_n.jpg" alt="Football Tournament">
+                    </div>
+                    <div class="initiative-content">
+                        <h4>New Year Football Tournament</h4>
+                        <p>Annual football tournament featuring 12 teams, running from December 28 to January 1. Promoting youth engagement, talent development, and community unity through sports.</p>
+                        <p><strong>Status:</strong> Active (2025 Edition Ongoing)</p>
+                    </div>
+                </div>
+                
+                <div class="initiative-card">
+                    <div class="initiative-img">
+                        <img src="images/556116404_795849816504115_7519370172316078783_n.jpg" alt="Business Consulting">
+                    </div>
+                    <div class="initiative-content">
+                        <h4>M.C. Business Consultants</h4>
+                        <p>Providing business registration, consulting, and mentorship services to entrepreneurs in Matero. Helping parents establish businesses for their children's future.</p>
+                        <p><strong>Services:</strong> Company registration, business planning, financial advice</p>
+                    </div>
+                </div>
+                
+                <div class="initiative-card">
+                    <div class="initiative-img">
+                        <img src="images/608895898_873261042096325_1595222947300990215_n.jpg" alt="Development Forum">
+                    </div>
+                    <div class="initiative-content">
+                        <h4>Matero Constituency Development Forum</h4>
+                        <p>A platform for dialogue, unity, and development in Matero Constituency. Regular community engagements and consultations to identify and address local needs.</p>
+                        <p><strong>Focus:</strong> Community dialogue, development planning, accountability</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy">
+        <div class="container">
+            <div class="section-title">
+                <h2>Life Philosophy & Lessons</h2>
+            </div>
+            
+            <div class="section-subtitle">
+                Core principles and values that guide Moses Banda's approach to leadership and community service.
+            </div>
+            
+            <div class="lessons-content">
+                <div class="lesson-card">
+                    <h4><i class="fas fa-user-check"></i> Respect as a Lifestyle</h4>
+                    <p>From 2017 to 2025, I learned that respect is not noise. It's quiet, consistent, and a lifestyle. Respect is attracted by discipline and earned through consistent, excellent conduct.</p>
+                </div>
+                
+                <div class="lesson-card">
+                    <h4><i class="fas fa-hands-helping"></i> Empowering Citizens</h4>
+                    <p>One of the biggest reasons politics is over-emphasized in Zambia is widespread disempowerment. Empowered citizens question leaders, analyze decisions, and demand accountability.</p>
+                </div>
+                
+                <div class="lesson-card">
+                    <h4><i class="fas fa-users"></i> Investing in People</h4>
+                    <p>The greatest investment on earth is not money; it is investing in people. When people feel respected and valued, they do their best.</p>
+                </div>
+                
+                <div class="lesson-card">
+                    <h4><i class="fas fa-business-time"></i> Business & Family Legacy</h4>
+                    <p>Parents should register companies or start businesses that children can take over. Teach children skills and involve them in your work to create a foundation for their future.</p>
+                </div>
+                
+                <div class="lesson-card">
+                    <h4><i class="fas fa-balance-scale"></i> Developmental Centrism</h4>
+                    <p>Rejecting extremes of unsustainable spending and exclusionary market policies in favor of a balanced approach that combines fiscal discipline with social investment.</p>
+                </div>
+                
+                <div class="lesson-card">
+                    <h4><i class="fas fa-fist-raised"></i> Courage to Act</h4>
+                    <p>Real change starts when you decide to act, take responsibility, and step forward with courage. History is shaped by people who saw a problem and moved to solve it.</p>
+                </div>
+                
+                <div class="lesson-card">
+                    <h4><i class="fas fa-clock"></i> Time Management</h4>
+                    <p>Time control is the highest form of discipline. How you manage your time determines the quality of your life and effectiveness as a leader.</p>
+                </div>
+                
+                <div class="lesson-card">
+                    <h4><i class="fas fa-church"></i> Spiritual Foundation</h4>
+                    <p>In Matthew 5, Jesus said, "We are the salt of the world." Our conduct, actions, and words must reflect that difference in all aspects of life and leadership.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community Engagement Gallery</h2>
+            </div>
+            
+            <div class="section-subtitle">
+                Moments from community engagements, meetings, and development activities in Matero Constituency.
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/504383937_736156372473460_9038386333744225760_n.jpg" alt="Community Meeting">
+                    <div class="gallery-overlay">
+                        <p>Community Consultation Meeting</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/556116404_795849816504115_7519370172316078783_n.jpg" alt="Football Tournament">
+                    <div class="gallery-overlay">
+                        <p>New Year Football Tournament</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/607009724_873016448787451_320629585485540725_n.jpg" alt="Youth Engagement">
+                    <div class="gallery-overlay">
+                        <p>Youth Empowerment Session</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="iahttps://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Workshop">
+                    <div class="gallery-overlay">
+                        <p>Business Skills Workshop</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Support the Movement</h2>
+            </div>
+            
+            <div class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">
+                Join Moses Banda in building a better Matero Constituency. Your support can help drive real change and development in our community.
+            </div>
+            
+            <a href="#contact" class="support-btn">Get Involved Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Contact Moses</h3>
+                    <p>For community engagement, development ideas, or support, feel free to reach out:</p>
+                    <p><i class="fas fa-phone"></i> 0977257811</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lusaka, Zambia</p>
+                    <p><i class="fas fa-landmark"></i> Matero Constituency</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Development People's Party</h3>
+                    <p>Moses Banda is a proud member of the Development People's Party (DPP), a fully registered political party committed to Zambia's development.</p>
+                    <p><strong>Vision:</strong> The Zambian Century of Development</p>
+                    <p><strong>Ideology:</strong> Developmental Centrism</p>
+                    <p><strong>Slogan:</strong> "Growth with a Heart: Development for All, Accountable to All."</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px;"><a href="#about" style="color: #ccc; text-decoration: none; transition: var(--transition);">About Moses</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#vision" style="color: #ccc; text-decoration: none; transition: var(--transition);">Vision & Mission</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#initiatives" style="color: #ccc; text-decoration: none; transition: var(--transition);">Community Initiatives</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#philosophy" style="color: #ccc; text-decoration: none; transition: var(--transition);">Leadership Philosophy</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#gallery" style="color: #ccc; text-decoration: none; transition: var(--transition);">Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Moses Banda - Aspiring Matero Member of Parliament. All rights reserved.</p>
+                <p>Designed with commitment to Matero's development and Zambia's future.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                
+                // Update active link
+                navLinks.forEach(item => item.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const backToTop = document.getElementById('backToTop');
+            
+            if(window.scrollY > 100) {
+                header.classList.add('scrolled');
+                backToTop.classList.add('visible');
+            } else {
+                header.classList.remove('scrolled');
+                backToTop.classList.remove('visible');
+            }
+            
+            // Highlight active section in navigation
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if(pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Animated counter for hero stats
+        function animateCounter(elementId, targetValue, duration = 2000) {
+            const element = document.getElementById(elementId);
+            let startValue = 0;
+            const increment = targetValue / (duration / 16); // 60fps
+            let currentValue = 0;
+            
+            const timer = setInterval(() => {
+                currentValue += increment;
+                if(currentValue >= targetValue) {
+                    element.textContent = targetValue.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(currentValue).toLocaleString();
+                }
+            }, 16);
+        }
+        
+        // Initialize counters when page loads
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                animateCounter('followersCount', 4500); // 4.5K followers
+                animateCounter('initiativesCount', 12); // 12 initiatives
+                animateCounter('yearsCount', 8); // 8 years of service
+            }, 500);
+        });
+        
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.timeline-item, .vision-card, .mission-card, .initiative-card, .lesson-card').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if(hero) {
+                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            }
+        });
+        
+        // Initialize with header check
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bandamo's Portfolio</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; background:#f6f8fb; color:#0b1a2b; }
+    .card { background:white; padding:2rem; border-radius:12px; box-shadow:0 8px 30px rgba(10,20,40,0.06); max-width:720px; text-align:center; }
+    a { color:#0366d6; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Bandamo's Portfolio</h1>
+    <p>Welcome — this is a placeholder. Replace this file with your portfolio HTML, or push your build output from your framework.</p>
+    <p><a href="https://github.com/unclenoah360/bandamosesportifolio" target="_blank" rel="noopener">View repository</a></p>
+  </main>
+</body>
+</html>
